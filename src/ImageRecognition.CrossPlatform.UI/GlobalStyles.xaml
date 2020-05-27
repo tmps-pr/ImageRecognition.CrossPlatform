@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                    xmlns:converters="clr-namespace:ImageRecognition.CrossPlatform.UI.Convertors"
+                    mc:Ignorable="d"
+                    x:Class="ImageRecognition.CrossPlatform.UI.GlobalStyles">
+
+    <!--Convertors-->
+    <converters:MenuButtonColorConverter x:Key="MenuButtonColorConverter"/>
+    <converters:MenuItemTypeImageConverter x:Key="MenuItemTypeImageConverter" />
+    
+    <!--Colors-->
+    <Color x:Key="PageBackground">#F9F9F9</Color>
+    <Color x:Key="Transparent">Transparent</Color>
+    <Color x:Key="WhiteGray">#F2F2F2</Color>
+    <Color x:Key="ButtonColor">#BCBCBC</Color>
+    <Color x:Key="PrimaryColor">#040f2a</Color>
+    <Color x:Key="White">#FFFFFF</Color>
+
+    <!--Font Sizes-->
+    <x:Double x:Key="LittleSize">12</x:Double>
+    <x:Double x:Key="MidMediumSize">14</x:Double>
+    <x:Double x:Key="MediumSize">16</x:Double>
+    <x:Double x:Key="LargeSize">18</x:Double>
+    <x:Double x:Key="LargerSize">20</x:Double>
+    <x:Double x:Key="BigSize">24</x:Double>
+    <x:Double x:Key="BigMidSize">28</x:Double>
+    <x:Double x:Key="ExtraBigSize">32</x:Double>
+    <x:Double x:Key="HugeSize">48</x:Double>
+    
+    <!--SVG Images-->
+    <x:String x:Key="IC_Age_Recognition">ImageRecognition.CrossPlatform.UI.Resources.Icons.age.svg</x:String>
+    <x:String x:Key="IC_Gender_Recognition">ImageRecognition.CrossPlatform.UI.Resources.Icons.gender.svg</x:String>
+    
+</ResourceDictionary>

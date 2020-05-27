@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:controlls="clr-namespace:ImageRecognition.CrossPlatform.UI.Views"
+             mc:Ignorable="d"
+             x:Class="ImageRecognition.CrossPlatform.UI.Views.ButtonMenuView"
+             x:Name="View">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonMenuItemStyle" TargetType="controlls:ButtonMenuItem">
+                <Setter Property="CaptionFontSize">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double"
+                                 Tablet="{StaticResource LargeSize}"
+                                 Phone="{StaticResource MidMediumSize}"
+                                 Desktop="{StaticResource LargerSize}" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double"
+                                 Tablet="200"
+                                 Phone="150"
+                                 Desktop="240" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <x:OnIdiom Tablet="200"
+                                   Phone="150"
+                                   Desktop="240" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <StyleSheet>
+
+                <![CDATA[
+                #MenuContainer {
+                    flex-wrap: wrap;
+                    margin: 10 0;
+                    display: flex;
+                    justify-content: space-around;
+                }
+            ]]>
+            </StyleSheet>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <FlexLayout x:Name="MenuContainer" BindableLayout.ItemsSource="{Binding MenuItems}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <controlls:ButtonMenuItem Caption="{Binding Title}" Style="{StaticResource ButtonMenuItemStyle}"
+                                            Command="{Binding Path=Parent.BindingContext.NavigateToMenuItemCommand, Source={x:Reference View}}"
+                                            CommandParameter="{Binding .}"
+                                            Source="{Binding MenuItemType, Converter={x:StaticResource MenuItemTypeImageConverter}, StringFormat='resource://{0}'}"
+                                            ButtonBackgroundColor="{Binding ., Converter={x:StaticResource MenuButtonColorConverter}}"
+                                            ImageColor="{StaticResource White}"
+                                            IsEnabled="{Binding IsEnabled}"/>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </ContentView.Content>
+</ContentView>

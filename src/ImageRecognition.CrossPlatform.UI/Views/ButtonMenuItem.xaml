@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+      mc:Ignorable="d"
+      x:Class="ImageRecognition.CrossPlatform.UI.Views.ButtonMenuItem"
+      Margin="5,10"
+      x:Name="Item">
+    <Grid.Resources>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="VerticalTextAlignment"
+                    Value="Start" />
+            <Setter Property="HorizontalTextAlignment"
+                    Value="Center" />
+            <Setter Property="TextColor"
+                    Value="White" />
+            <Setter Property="MaxLines"
+                    Value="2"/>
+        </Style>
+
+        <Style x:Key="ImageStyle" TargetType="ffSvg:SvgCachedImage">
+            <Setter Property="HorizontalOptions"
+                    Value="FillAndExpand" />
+            <Setter Property="VerticalOptions"
+                    Value="FillAndExpand" />
+            <Setter Property="Margin"
+                    Value="10" />
+            <Setter Property="Opacity"
+                    Value="1" />
+        </Style>
+
+        <Style TargetType="Frame">
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>
+    </Grid.Resources>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="45" />
+    </Grid.RowDefinitions>
+    <Grid Grid.Row="0">
+        <Frame x:Name="Frame"
+            Padding="0">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ExecCommand, Source={x:Reference Item}}" />
+            </Frame.GestureRecognizers>
+            <Grid Margin="0" Padding="0">
+                <ffSvg:SvgCachedImage x:Name="Image"
+                                  Style="{x:StaticResource ImageStyle}"/>
+            </Grid>
+        </Frame>
+    </Grid>
+    <Label Grid.Row="1"
+           x:Name="Label"
+           Style="{StaticResource LabelStyle}"/>
+</Grid>

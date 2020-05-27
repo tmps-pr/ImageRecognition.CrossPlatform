@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvx:MvxContentPage  xmlns:mvx="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
+                     xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     mc:Ignorable="d"
+                     x:Class="ImageRecognition.CrossPlatform.UI.Pages.MenuPage"
+                     xmlns:viewModels="clr-namespace:ImageRecognition.CrossPlatform.Core.ViewModels;assembly=ImageRecognition.CrossPlatform.Core" 
+                     x:TypeArguments="viewModels:MenuPageViewModel"
+                     xmlns:controlls="clr-namespace:ImageRecognition.CrossPlatform.UI.Views"
+                     Title="Menu">
+   
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource PrimaryColor}" VerticalOptions="FillAndExpand">
+            <controlls:ButtonMenuView VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</mvx:MvxContentPage>

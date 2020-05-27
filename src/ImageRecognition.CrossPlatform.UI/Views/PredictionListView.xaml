@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ImageRecognition.CrossPlatform.UI.Views.PredictionListView">
+  <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <ListView ItemsSource="{Binding Predictions}"
+                  HasUnevenRows="True"
+                  SelectionMode="None"
+                  x:Name="List"
+                      Grid.Row="0"
+                      Grid.Column="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Label}" Grid.Column="0" FontAttributes="Bold" TextColor="White" FontSize="{StaticResource BigSize}"/>
+                                <Label Text="{Binding Score}" Grid.Column="1" HorizontalTextAlignment="Start" TextColor="White" FontSize="{StaticResource BigSize}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            <Image Source="{Binding Image}" Grid.Row="0" Grid.Column="1" HorizontalOptions="End"/>
+            <Button Text="Upload"
+                    Command="{Binding UploadCommand}"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    TextColor="White"/>
+
+        </Grid>
+  </ContentView.Content>
+</ContentView>
